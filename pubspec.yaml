@@ -1,7 +1,7 @@
 name: s3_dart_lite
-description: A starting point for Dart libraries or applications.
-version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+description: A lightweight S3 client for Dart, ported from the excellent TypeScript s3-lite-client (https://github.com/bradenmacdonald/s3-lite-client).
+version: 0.0.1
+repository: https://github.com/pheonixeye/s3-dart-lite.git
 
 environment:
   sdk: ^3.10.4
