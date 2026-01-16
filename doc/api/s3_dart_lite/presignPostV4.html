@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the presignPostV4 function from the s3_dart_lite library, for the Dart programming language.">
+  <title>presignPostV4 function - s3_dart_lite library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">s3_dart_lite</a></li>
+    <li><a href="../s3_dart_lite/">s3_dart_lite.dart</a></li>
+    <li class="self-crumb">presignPostV4 function</li>
+  </ol>
+  <div class="self-name">presignPostV4</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar="s3_dart_lite&#47;s3_dart_lite-library-sidebar.html"
+      data-below-sidebar="">
+      <div>
+<h1><span class="kind-function">presignPostV4</span> function 
+ 
+</h1></div>
+
+    <section class="multi-line-signature">
+        
+<span class="returntype"><a href="https://api.dart.dev/stable/3.10.4/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/3.10.4/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/3.10.4/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span>&gt;</span></span>
+<span class="name ">presignPostV4</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="presignPostV4-param-host"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.10.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">host</span>, </span></li>
+<li><span class="parameter" id="presignPostV4-param-protocol"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.10.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">protocol</span>, </span></li>
+<li><span class="parameter" id="presignPostV4-param-bucket"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.10.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">bucket</span>, </span></li>
+<li><span class="parameter" id="presignPostV4-param-objectKey"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.10.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">objectKey</span>, </span></li>
+<li><span class="parameter" id="presignPostV4-param-accessKey"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.10.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">accessKey</span>, </span></li>
+<li><span class="parameter" id="presignPostV4-param-secretKey"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.10.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">secretKey</span>, </span></li>
+<li><span class="parameter" id="presignPostV4-param-region"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.10.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">region</span>, </span></li>
+<li><span class="parameter" id="presignPostV4-param-date"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.10.4/dart-core/DateTime-class.html">DateTime</a></span> <span class="parameter-name">date</span>, </span></li>
+<li><span class="parameter" id="presignPostV4-param-expirySeconds"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.10.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">expirySeconds</span>, </span></li>
+<li><span class="parameter" id="presignPostV4-param-conditions"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.10.4/dart-core/List-class.html">List</a>?</span> <span class="parameter-name">conditions</span>, </span></li>
+<li><span class="parameter" id="presignPostV4-param-fields"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.10.4/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/3.10.4/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://api.dart.dev/stable/3.10.4/dart-core/String-class.html">String</a></span>&gt;</span>?</span> <span class="parameter-name">fields</span>, </span></li>
+</ol>})
+
+        
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Generate a presigned POST policy that can be used to allow direct uploads to S3.</p>
+<p>Returns a map containing the <code>url</code> to post to and the <code>fields</code> to include in the form data.</p>
+<p><code>host</code>: The S3 host.
+<code>protocol</code>: 'http' or 'https'.
+<code>bucket</code>: Target bucket name.
+<code>objectKey</code>: Target object key.
+<code>accessKey</code>: AWS access key.
+<code>secretKey</code>: AWS secret key.
+<code>region</code>: AWS region.
+<code>date</code>: Request date.
+<code>expirySeconds</code>: Policy expiration in seconds.
+<code>conditions</code>: Additional policy conditions.
+<code>fields</code>: Additional fields to include in the policy and form data.</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;Map&lt;String, dynamic&gt;&gt; presignPostV4({
+  required String host,
+  required String protocol,
+  required String bucket,
+  required String objectKey,
+  required String accessKey,
+  required String secretKey,
+  required String region,
+  required DateTime date,
+  required int expirySeconds,
+  List&lt;dynamic&gt;? conditions,
+  Map&lt;String, String&gt;? fields,
+}) async {
+  if (accessKey.isEmpty) {
+    throw AccessKeyRequiredError();
+  }
+  if (secretKey.isEmpty) {
+    throw SecretKeyRequiredError();
+  }
+  if (expirySeconds &lt; 1 || expirySeconds &gt; 604800) {
+    throw InvalidExpiryError();
+  }
+
+  final expiration = date.add(Duration(seconds: expirySeconds));
+  final credential = getCredential(accessKey, region, date);
+  final iso8601Date = makeDateLong(date);
+
+  &#47;&#47; Default required policy fields
+  final policyFields = &lt;String, String&gt;{
+    &quot;X-Amz-Algorithm&quot;: signV4Algorithm,
+    &quot;X-Amz-Credential&quot;: credential,
+    &quot;X-Amz-Date&quot;: iso8601Date,
+    &quot;key&quot;: objectKey,
+  };
+
+  if (fields != null) {
+    policyFields.addAll(fields);
+  }
+
+  &#47;&#47; Build policy document
+  final policyConditions = &lt;dynamic&gt;[
+    {&quot;bucket&quot;: bucket},
+    {&quot;key&quot;: objectKey},
+    {&quot;X-Amz-Algorithm&quot;: signV4Algorithm},
+    {&quot;X-Amz-Credential&quot;: credential},
+    {&quot;X-Amz-Date&quot;: iso8601Date},
+  ];
+
+  &#47;&#47; Add any additional conditions provided by the user
+  if (conditions != null) {
+    policyConditions.addAll(conditions);
+  }
+
+  &#47;&#47; Add additional fields as conditions
+  if (fields != null) {
+    for (final entry in fields.entries) {
+      if ([
+        &quot;key&quot;,
+        &quot;X-Amz-Algorithm&quot;,
+        &quot;X-Amz-Credential&quot;,
+        &quot;X-Amz-Date&quot;,
+      ].contains(entry.key)) {
+        continue;
+      }
+      policyConditions.add({entry.key: entry.value});
+    }
+  }
+
+  final policy = {
+    &quot;expiration&quot;: expiration.toUtc().toIso8601String(),
+    &quot;conditions&quot;: policyConditions,
+  };
+
+  &#47;&#47; Convert policy to base64
+  final policyJson = jsonEncode(policy);
+  final policyBytes = utf8.encode(policyJson);
+  final base64Policy = base64.encode(policyBytes);
+
+  policyFields[&quot;policy&quot;] = base64Policy;
+
+  &#47;&#47; Calculate signature
+  final stringToSign = base64Policy;
+  final signingKey = await getSigningKey(date, region, secretKey);
+  final signature = bin2hex(
+    Uint8List.fromList(await sha256hmac(signingKey, utf8.encode(stringToSign))),
+  ).toLowerCase();
+
+  policyFields[&quot;X-Amz-Signature&quot;] = signature;
+
+  &#47;&#47; Construct the URL
+  &#47;&#47; Ensure protocol has colon if missing (Client passes &quot;https&quot; or &quot;http&quot;)
+  final proto = protocol.endsWith(&quot;:&quot;) ? protocol : &quot;$protocol:&quot;;
+  final url = &quot;$proto&#47;&#47;$host&#47;$bucket&quot;;
+
+  return {&quot;url&quot;: url, &quot;fields&quot;: policyFields};
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">s3_dart_lite</a></li>
+    <li><a href="../s3_dart_lite/">s3_dart_lite</a></li>
+    <li class="self-crumb">presignPostV4 function</li>
+</ol>
+
+    <h5>s3_dart_lite library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-left-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    s3_dart_lite
+      0.0.1
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

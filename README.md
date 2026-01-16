@@ -14,16 +14,8 @@ A lightweight S3 client for Dart, ported from the excellent TypeScript [s3-lite-
 ## Documentation
 
 - [**API Reference**](doc/api/index.html) (Generated via `dart doc`)
-- [**Project Documentation**](docs/index.md) (Guides and Tutorials)
+- [**Project Documentation**](md/index.md) (Guides and Tutorials)
 
-To view the full project documentation website locally with MkDocs:
-```bash
-# Install mkdocs-material
-pip install mkdocs-material
-
-# Serve the site
-mkdocs serve
-```
 
 ## Project Structure
 
@@ -39,8 +31,7 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  s3_dart_lite:
-    path: /path/to/s3-dart-lite # Temporarily local or git dependency
+  s3_dart_lite: ^0.0.2
 ```
 
 ## Usage

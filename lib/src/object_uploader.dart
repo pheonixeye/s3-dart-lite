@@ -18,6 +18,8 @@ const minimumPartSize = 5 * 1024 * 1024;
 /// The maximum allowed part size for multi-part uploads.
 const maximumPartSize = 5 * 1024 * 1024 * 1024;
 
+/// Helper class to handle object uploads, automatically choosing between
+/// single-put and multipart upload based on size.
 class ObjectUploader {
   final Client client;
   final String bucketName;
@@ -35,6 +37,7 @@ class ObjectUploader {
   final _uploads = <Future<void>>[];
   Object? _error;
 
+  /// Creates a new [ObjectUploader].
   ObjectUploader({
     required this.client,
     required this.bucketName,
@@ -43,7 +46,9 @@ class ObjectUploader {
     required this.metadata,
   });
 
-  /// Consume the stream and upload
+  /// Consumes the [stream] and uploads it to S3.
+  ///
+  /// Returns [UploadedObjectInfo] containing the ETag and Version ID.
   Future<UploadedObjectInfo> upload(Stream<List<int>> stream) async {
     try {
       await for (final chunk in stream) {

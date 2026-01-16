@@ -7,12 +7,14 @@ Initialize the client with your S3 compatible service credentials.
 ```dart
 import 'package:s3_dart_lite/s3_dart_lite.dart';
 
-final client = Client(ClientOptions(
-  endPoint: 's3.us-east-1.amazonaws.com',
-  region: 'us-east-1',
-  accessKey: 'YOUR_ACCESS_KEY',
-  secretKey: 'YOUR_SECRET_KEY',
-));
+final client = Client(
+  ClientOptions(
+    endPoint: 's3.us-east-1.amazonaws.com',
+    region: 'us-east-1',
+    accessKey: 'YOUR_ACCESS_KEY',
+    secretKey: 'YOUR_SECRET_KEY',
+  ),
+);
 ```
 
 ## Uploading Objects

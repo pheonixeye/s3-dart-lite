@@ -6,7 +6,15 @@ import 'package:s3_dart_lite/src/errors.dart';
 
 const signV4Algorithm = "AWS4-HMAC-SHA256";
 
-/// Generate the Authorization header required to authenticate an S3/AWS request.
+/// Generate the AWS Signature Version 4 Authorization header.
+///
+/// [headers]: The headers to include in the signature.
+/// [method]: The HTTP method (GET, PUT, etc.).
+/// [path]: The resource path (including query parameters if part of the path).
+/// [accessKey]: CAWS access key.
+/// [secretKey]: AWS secret key.
+/// [region]: AWS region.
+/// [date]: The date of the request.
 Future<String> signV4({
   required Map<String, String> headers,
   required String method,
@@ -56,7 +64,18 @@ Future<String> signV4({
   return "$signV4Algorithm Credential=$credential, SignedHeaders=${signedHeaders.join(";").toLowerCase()}, Signature=$signature";
 }
 
-/// Generate a pre-signed URL
+/// Generate a pre-signed URL for temporary access to an object.
+///
+/// [protocol]: 'http' or 'https'.
+/// [headers]: Headers to include in the signature (host is required).
+/// [method]: HTTP method.
+/// [path]: Resource path (e.g. /bucket/object).
+/// [accessKey]: AWS access key.
+/// [secretKey]: AWS secret key.
+/// [sessionToken]: Optional session token.
+/// [region]: AWS region.
+/// [date]: Request date.
+/// [expirySeconds]: Expiration time in seconds (max 7 days).
 Future<String> presignV4({
   required String protocol,
   required Map<String, String> headers,
@@ -285,6 +304,20 @@ typedef PolicyCondition = Map<String, dynamic>;
 // In Dart, we can use Map<String, dynamic> for objects, and List<dynamic> for ["starts-with", ...]
 
 /// Generate a presigned POST policy that can be used to allow direct uploads to S3.
+///
+/// Returns a map containing the `url` to post to and the `fields` to include in the form data.
+///
+/// [host]: The S3 host.
+/// [protocol]: 'http' or 'https'.
+/// [bucket]: Target bucket name.
+/// [objectKey]: Target object key.
+/// [accessKey]: AWS access key.
+/// [secretKey]: AWS secret key.
+/// [region]: AWS region.
+/// [date]: Request date.
+/// [expirySeconds]: Policy expiration in seconds.
+/// [conditions]: Additional policy conditions.
+/// [fields]: Additional fields to include in the policy and form data.
 Future<Map<String, dynamic>> presignPostV4({
   required String host,
   required String protocol,

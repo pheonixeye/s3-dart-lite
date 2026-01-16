@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the presignV4 function from the s3_dart_lite library, for the Dart programming language.">
+  <title>presignV4 function - s3_dart_lite library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">s3_dart_lite</a></li>
+    <li><a href="../s3_dart_lite/">s3_dart_lite.dart</a></li>
+    <li class="self-crumb">presignV4 function</li>
+  </ol>
+  <div class="self-name">presignV4</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar="s3_dart_lite&#47;s3_dart_lite-library-sidebar.html"
+      data-below-sidebar="">
+      <div>
+<h1><span class="kind-function">presignV4</span> function 
+ 
+</h1></div>
+
+    <section class="multi-line-signature">
+        
+<span class="returntype"><a href="https://api.dart.dev/stable/3.10.4/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/3.10.4/dart-core/String-class.html">String</a></span>&gt;</span></span>
+<span class="name ">presignV4</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="presignV4-param-protocol"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.10.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">protocol</span>, </span></li>
+<li><span class="parameter" id="presignV4-param-headers"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.10.4/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/3.10.4/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://api.dart.dev/stable/3.10.4/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">headers</span>, </span></li>
+<li><span class="parameter" id="presignV4-param-method"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.10.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">method</span>, </span></li>
+<li><span class="parameter" id="presignV4-param-path"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.10.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span>, </span></li>
+<li><span class="parameter" id="presignV4-param-accessKey"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.10.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">accessKey</span>, </span></li>
+<li><span class="parameter" id="presignV4-param-secretKey"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.10.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">secretKey</span>, </span></li>
+<li><span class="parameter" id="presignV4-param-sessionToken"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.10.4/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">sessionToken</span>, </span></li>
+<li><span class="parameter" id="presignV4-param-region"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.10.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">region</span>, </span></li>
+<li><span class="parameter" id="presignV4-param-date"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.10.4/dart-core/DateTime-class.html">DateTime</a></span> <span class="parameter-name">date</span>, </span></li>
+<li><span class="parameter" id="presignV4-param-expirySeconds"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.10.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">expirySeconds</span>, </span></li>
+</ol>})
+
+        
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Generate a pre-signed URL for temporary access to an object.</p>
+<p><code>protocol</code>: 'http' or 'https'.
+<code>headers</code>: Headers to include in the signature (host is required).
+<code>method</code>: HTTP method.
+<code>path</code>: Resource path (e.g. /bucket/object).
+<code>accessKey</code>: AWS access key.
+<code>secretKey</code>: AWS secret key.
+<code>sessionToken</code>: Optional session token.
+<code>region</code>: AWS region.
+<code>date</code>: Request date.
+<code>expirySeconds</code>: Expiration time in seconds (max 7 days).</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;String&gt; presignV4({
+  required String protocol,
+  required Map&lt;String, String&gt; headers,
+  required String method,
+  required String path,
+  required String accessKey,
+  required String secretKey,
+  String? sessionToken,
+  required String region,
+  required DateTime date,
+  required int expirySeconds,
+}) async {
+  if (accessKey.isEmpty) {
+    throw AccessKeyRequiredError();
+  }
+  if (secretKey.isEmpty) {
+    throw SecretKeyRequiredError();
+  }
+  if (expirySeconds &lt; 1 || expirySeconds &gt; 604800) {
+    throw InvalidExpiryError();
+  }
+
+  final caseInsensitiveHeaders = canonicalizeHeadersMap(headers);
+  if (!caseInsensitiveHeaders.containsKey(&quot;host&quot;)) {
+    throw Exception(&quot;Internal error: host header missing&quot;);
+  }
+
+  &#47;&#47; Information about the future request that we&#39;re going to sign:
+  final pathParts = path.split(&quot;?&quot;);
+  final resource = pathParts[0];
+  final queryString = pathParts.length &gt; 1 ? pathParts[1] : &quot;&quot;;
+
+  final iso8601Date = makeDateLong(date);
+  final signedHeaders = getHeadersToSign(caseInsensitiveHeaders);
+  final credential = getCredential(accessKey, region, date);
+  const hashedPayload = &quot;UNSIGNED-PAYLOAD&quot;;
+
+  &#47;&#47; Build the query string for our new signed URL:
+  final queryParams = Uri.splitQueryString(queryString); &#47;&#47; This decodes values
+  &#47;&#47; We need to construct a map that we will then encode and sort.
+
+  final newQuery = &lt;String, String&gt;{};
+  queryParams.forEach((k, v) =&gt; newQuery[k] = v);
+
+  newQuery[&quot;X-Amz-Algorithm&quot;] = signV4Algorithm;
+  newQuery[&quot;X-Amz-Credential&quot;] = credential;
+  newQuery[&quot;X-Amz-Date&quot;] = iso8601Date;
+  newQuery[&quot;X-Amz-Expires&quot;] = expirySeconds.toString();
+  newQuery[&quot;X-Amz-SignedHeaders&quot;] = signedHeaders.join(&quot;;&quot;).toLowerCase();
+  if (sessionToken != null) {
+    newQuery[&quot;X-Amz-Security-Token&quot;] = sessionToken;
+  }
+
+  &#47;&#47; Canonical query string must be sorted by key
+  &#47;&#47; And keys&#47;values must be URI encoded.
+  &#47;&#47; Note: Uri.queryParameters encodes spaces as +, but S3 V4 requires %20.
+  &#47;&#47; We&#39;ll handle this in getCanonicalRequest &#47; manual construction.
+
+  &#47;&#47; Construct the query string manually to control encoding perfectly
+  final sortedKeys = newQuery.keys.toList()..sort();
+  final newQueryStringParts = &lt;String&gt;[];
+  for (var key in sortedKeys) {
+    final val = newQuery[key]!;
+    newQueryStringParts.add(&quot;${awsUriEncode(key)}=${awsUriEncode(val)}&quot;);
+  }
+  final newQueryString = newQueryStringParts.join(&quot;&amp;&quot;);
+
+  final signingPath = &quot;$resource?$newQueryString&quot;;
+
+  &#47;&#47; resource for canonical request needs to be encoded, except slashes
+  &#47;&#47; But wait, the path passed to this function is already constructed?
+  &#47;&#47; In TS version: `const encodedPath = resource.split(&quot;&#47;&quot;).map((part) =&gt; encodeURIComponent(part)).join(&quot;&#47;&quot;);`
+  &#47;&#47; We&#39;ll do similar logic inside getCanonicalRequest or just here.
+
+  &#47;&#47; Let&#39;s reproduce the TS logic carefully.
+  final encodedPath = resource
+      .split(&quot;&#47;&quot;)
+      .map((part) =&gt; Uri.encodeComponent(part))
+      .join(&quot;&#47;&quot;);
+
+  final canonicalRequest = getCanonicalRequest(
+    method,
+    signingPath,
+    caseInsensitiveHeaders,
+    signedHeaders,
+    hashedPayload,
+  );
+
+  final stringToSign = await getStringToSign(canonicalRequest, date, region);
+  final signingKey = await getSigningKey(date, region, secretKey);
+
+  var hmac = Hmac(sha256, signingKey);
+  var digest = hmac.convert(utf8.encode(stringToSign));
+  final signature = digest.toString().toLowerCase();
+
+  final host = caseInsensitiveHeaders[&quot;host&quot;];
+  final proto = protocol.endsWith(&quot;:&quot;) ? protocol : &quot;$protocol:&quot;;
+  return &quot;$proto&#47;&#47;$host$encodedPath?$newQueryString&amp;X-Amz-Signature=$signature&quot;;
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">s3_dart_lite</a></li>
+    <li><a href="../s3_dart_lite/">s3_dart_lite</a></li>
+    <li class="self-crumb">presignV4 function</li>
+</ol>
+
+    <h5>s3_dart_lite library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-left-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    s3_dart_lite
+      0.0.1
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

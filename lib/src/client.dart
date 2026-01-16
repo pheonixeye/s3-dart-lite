@@ -7,10 +7,15 @@ import 'package:s3_dart_lite/src/helpers.dart';
 import 'package:s3_dart_lite/src/signing.dart';
 import 'package:s3_dart_lite/src/object_uploader.dart';
 
+/// Contains information about an object uploaded to S3.
 class UploadedObjectInfo {
+  /// The ETag of the uploaded object.
   final String etag;
+
+  /// The version ID of the uploaded object, if versioning is enabled on the bucket.
   final String? versionId;
 
+  /// Creates a new [UploadedObjectInfo] instance.
   UploadedObjectInfo(this.etag, this.versionId);
 
   @override
@@ -29,18 +34,41 @@ const metadataKeys = [
   // ... add others as needed
 ];
 
+/// Configuration options for the S3 client.
 class ClientOptions {
+  /// The S3 endpoint URL (e.g., 'https://s3.amazonaws.com' or 'your-minio-server.com').
   final String endPoint;
+
+  /// The access key for authentication.
   final String? accessKey;
+
+  /// The secret key for authentication.
   final String? secretKey;
+
+  /// The session token for temporary credentials (optional).
   final String? sessionToken;
+
+  /// The default bucket to use for requests if not specified in the method call.
   final String? bucket;
+
+  /// The AWS region (e.g., 'us-east-1').
   final String region;
+
+  /// Whether to use path-style access (default: true).
+  /// If true, accessing `https://endpoint/bucket/key`.
+  /// If false, accessing `https://bucket.endpoint/key` (virtual-hosted style).
   final bool pathStyle;
+
+  /// Whether to use SSL (HTTPS). Default is true.
   final bool useSSL;
+
+  /// Explicit port number to connect to. Overrides the default port derived from scheme/useSSL.
   final int? port;
+
+  /// Specific path prefix to append to the endpoint URL (e.g. for some proxy-ed setups).
   final String? pathPrefix;
 
+  /// Creates a new [ClientOptions] instance.
   ClientOptions({
     required this.endPoint,
     required this.region,
@@ -55,12 +83,21 @@ class ClientOptions {
   });
 }
 
+/// Represents an object stored in S3.
 class S3Object {
+  /// The key (path) of the object.
   final String key;
+
+  /// The last modified timestamp of the object.
   final DateTime? lastModified;
+
+  /// The ETag of the object.
   final String? etag;
+
+  /// The size of the object in bytes.
   final int size;
 
+  /// Creates a new [S3Object] instance.
   S3Object({
     required this.key,
     this.lastModified,
@@ -72,11 +109,14 @@ class S3Object {
   String toString() => 'S3Object(key: $key, size: $size, etag: $etag)';
 }
 
+/// Represents a common prefix (subdirectory) in a list objects response.
 class CommonPrefix {
+  /// The prefix string.
   final String prefix;
   CommonPrefix(this.prefix);
 }
 
+/// A client for interacting with S3-compatible storage services.
 class Client {
   late final String host;
   late final int port;
@@ -92,6 +132,9 @@ class Client {
   // Use a persistent client for keep-alive
   final http.Client _httpClient;
 
+  /// Creates a new [Client] with the given [options].
+  ///
+  /// Optionally provide a custom [httpClient] for testing or advanced configuration.
   Client(ClientOptions options, {http.Client? httpClient})
     : _httpClient = httpClient ?? http.Client(),
       accessKey = options.accessKey,
@@ -136,6 +179,7 @@ class Client {
     }
   }
 
+  /// Closes the underlying HTTP client.
   void close() {
     _httpClient.close();
   }
@@ -153,7 +197,15 @@ class Client {
     return objectName.split('/').map(Uri.encodeComponent).join('/');
   }
 
-  /// Make a single request to S3
+  /// Make a raw request to S3.
+  ///
+  /// [method]: The HTTP method (GET, PUT, POST, DELETE, HEAD).
+  /// [objectName]: The key of the object.
+  /// [bucketName]: The bucket name (overrides default bucket).
+  /// [headers]: Additional headers to send.
+  /// [query]: Query parameters.
+  /// [payload]: Body content (String, List<int>, or null).
+  /// [expectedStatusCode]: If set, throws [ServerError] if response status doesn't match.
   Future<http.Response> makeRequest({
     required String method,
     String objectName = "",
@@ -271,6 +323,8 @@ class Client {
     return response;
   }
 
+  /// Checks if an object exists in the specified [bucketName].
+  /// Returns `true` if it exists, `false` otherwise.
   Future<bool> exists(String objectName, {String? bucketName}) async {
     try {
       await makeRequest(
@@ -288,6 +342,7 @@ class Client {
     }
   }
 
+  /// Deletes an object from the specified [bucketName].
   Future<void> deleteObject(String objectName, {String? bucketName}) async {
     await makeRequest(
       method: "DELETE",
@@ -297,6 +352,10 @@ class Client {
     );
   }
 
+  /// Lists objects in the specified [bucketName].
+  ///
+  /// [prefix]: Filter results to objects starting with this prefix.
+  /// [maxResults]: Maximum number of items to return.
   Future<List<S3Object>> listObjects({
     String? bucketName,
     String? prefix,
@@ -343,7 +402,12 @@ class Client {
     return results;
   }
 
-  /// Upload an object
+  /// Uploads an object to S3.
+  ///
+  /// [objectName]: The key/path for the object.
+  /// [payload]: The content to upload. Can be `String`, `List<int>`, or `Stream<List<int>>`.
+  /// [partSize]: Size of parts for multipart uploads (default 5MB).
+  /// [metadata]: Custom metadata to store with the object.
   Future<UploadedObjectInfo> putObject(
     String objectName,
     dynamic payload, {
@@ -377,6 +441,9 @@ class Client {
     return await uploader.upload(stream);
   }
 
+  /// Retrieves an object from S3.
+  ///
+  /// Returns the raw [http.Response]. The body can be accessed via `response.bodyBytes`.
   Future<http.Response> getObject(
     String objectName, {
     String? bucketName,
@@ -389,6 +456,12 @@ class Client {
     );
   }
 
+  /// Generates a presigned URL for an object.
+  ///
+  /// [method]: The HTTP method to allow (e.g. GET, PUT).
+  /// [expirySeconds]: How long the URL is valid for (default 7 days).
+  /// [parameters]: Additional query parameters.
+  /// [requestDate]: The date the request is signed (default now).
   Future<String> getPresignedUrl(
     String method,
     String objectName, {
